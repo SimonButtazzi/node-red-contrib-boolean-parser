@@ -16,7 +16,7 @@
 //        outputLabels: ["event"],
         icon: "boolean-parser.png",
         label: function() {
-            return this.name || "<>bool";
+            return this.name || ">" + this.outputFormat;
         },
 //        oneditprepare: function() {
             //           this.name = this.name || "";
@@ -43,6 +43,8 @@
         <select id="node-input-outputFormat">
             <option value="bool">true / false</option>
             <option value="boolstr">"true" / "false"</option>
+            <option value="TreuFalse">"True" / "False"</option>
+            <option value="TRUEFALSE">"TRUE" / "FALSE"</option>
             <option value="int">1 / 0</option>
             <option value="intstr">"1" / "0"</option>
             <option value="startstop">"start" / "stop"</option>

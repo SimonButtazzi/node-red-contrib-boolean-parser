@@ -6,6 +6,8 @@
         switch (format) {
             case "bool": return Boolean(value);
             case "boolstr": return value ? "true" : "false";
+            case "TrueFalse": return value ? "True" : "False";
+            case "TRUEFALSE": return value ? "TRUE" : "FALSE";
             case "int": return value ? 1 : 0;
             case "intstr": return value ? "1" : "0";
             case "startstop": return value ? "start" : "stop";
