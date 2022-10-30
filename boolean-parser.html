@@ -1,6 +1,6 @@
 <script type="text/javascript">
     RED.nodes.registerType('boolean-parser',{
-        category: 'function',
+        category: 'parser',
         color: '#DEBD5C',
         defaults: {
             name: {value:""},
@@ -15,13 +15,13 @@
 //        inputLabels: "power (W)",
 //        outputLabels: ["event"],
         icon: "boolean-parser.png",
-//        label: function() {
-//            return this.name||"?toBool";
-//        },
-        oneditprepare: function() {
+        label: function() {
+            return this.name || "?toBool";
+        },
+//        oneditprepare: function() {
             //           this.name = this.name || "";
             //           this.startthreshold = this.startthreshold || 0;
-        }
+//        }
     });
 </script>
 
