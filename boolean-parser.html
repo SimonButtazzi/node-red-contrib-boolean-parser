@@ -5,7 +5,8 @@
         defaults: {
             name: {value:""},
             inputField: {value:"payload"},
-            outputFormat: {value:""},
+            outputField: {value:"payload"},
+            outputFormat: {value:"bool"},
             handleNull: {value: true}
 
         },
@@ -31,15 +32,19 @@
     </div>
     <div class="form-row">
         <label for="node-input-inputField"><i class="icon-tag"></i> Input Field</label>
-        <input type="text" id="node-input-inputField" placeholder="Input Field">
+        <input type="text" id="node-input-inputField" placeholder="e.g. payload">
+    </div>
+        <div class="form-row">
+        <label for="node-input-outputField"><i class="icon-tag"></i> Output Field</label>
+        <input type="text" id="node-input-outputField" placeholder="e.g. payload">
     </div>
     <div class="form-row">
         <label for="node-input-outputFormat"><i class="icon-tag"></i> Output format</label>
         <select id="node-input-outputFormat">
-            <option value="">true/false</option>
-            <option value="a">A</option>
-            <option value="b">B</option>
-            <option value="c">C</option>
+            <option value="bool">true/false</option>
+            <option value="boolstr">"true"/"false"</option>
+            <option value="int">1/0</option>
+            <option value="intstr">"1"/"0"</option>
         </select>
     </div>
     <div class="form-row">

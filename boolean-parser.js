@@ -2,9 +2,19 @@
 
     "use strict";
 
- //   function kwh(value, energydecimals) {
- //       return parseFloat(Number(value / 360 / 10000).toFixed(energydecimals));
- //   }
+    function formatOutput(value, format) {
+        switch (format) {
+            case "bool":
+                return Boolean(value);
+            case "boolstr":
+                return value ? "true" : "false";
+            case "int":
+                return value ? 1 : 0;
+            case "intstr":
+                return value ? "1" : "0";
+        }
+        return Boolean(value);
+    }
 
 
 
@@ -16,6 +26,8 @@
 
         this.name = config.name || "";
         this.inputField = config.inputField || "payload";
+        this.outputField = config.outputField || "payload";
+        this.outputFormat = config.outputFormat || "bool";
         this.emitidle = Boolean(config.emitidle || false);
 
         /*
@@ -35,9 +47,8 @@
 
         this.on("input", function(msg) {
             //let value = node[node.inputField];
-            msg.payload = Boolean(msg.payload);
-            msg.test = "test123";
-
+            msg.payload = formatOutput(msg.payload, node.outputFormat);
+            msg.test = msg[node.inputField];
 
                 node.send(msg);
         });
