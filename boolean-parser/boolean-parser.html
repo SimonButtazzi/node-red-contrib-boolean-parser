@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('boolean-parser',{
+        category: 'function',
+        color: '#DEBD5C',
+        defaults: {
+            name: {value:""},
+            inputField: {value:"payload"},
+            outputFormat: {value:""},
+            handleNull: {value: true}
+
+        },
+        inputs:1,
+        outputs:1,
+//        inputLabels: "power (W)",
+//        outputLabels: ["event"],
+        icon: "boolean-parser.png",
+//        label: function() {
+//            return this.name||"?toBool";
+//        },
+        oneditprepare: function() {
+            //           this.name = this.name || "";
+            //           this.startthreshold = this.startthreshold || 0;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="boolean-parser">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-inputField"><i class="icon-tag"></i> Input Field</label>
+        <input type="text" id="node-input-inputField" placeholder="Input Field">
+    </div>
+    <div class="form-row">
+        <label for="node-input-outputFormat"><i class="icon-tag"></i> Output format</label>
+        <select id="node-input-outputFormat">
+            <option value="">true/false</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <div style="display: inline;">
+            <label for="node-input-handleNull" style="width: 120px;">ignore other inputs?</label>
+            <input type="checkbox" id="node-input-handleNull" style="display: inline-block; width: auto; vertical-align: top;">
+        </div>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="boolean-parser">
+
+<!-- @todo docs here -->
+
+</script>
