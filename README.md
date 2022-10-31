@@ -12,7 +12,9 @@ This packages provides an additional node in parser section. You can use it to t
 
 ## Install
 
-Burgemenu on the right -> Manage palette -> Tab Install -> serach for  _node-red-contrib-boolean-parser_ -> press install
+### Webend
+
+Burgermenu on the right -> Manage palette -> Tab Install -> serach for  _node-red-contrib-boolean-parser_ -> press install
 
 ### CLI
 Run the following command in your Node-RED user directory - typically `~/.node-red`:
@@ -23,16 +25,16 @@ npm install node-red-contrib-boolean-parser
 
 ### Docker
 
-running node-red in an docker environment this should do the job:
+Running node-red in an docker environment this should do the job:
 
-enter container:
+Enter container:
 
 ```
 docker exec -it <containername> /bin/bash
 ```
-inside container:
+Inside container run the following command in your Node-RED user directory - typically `/data`:
+
 ```
-cd /data
 npm install node-red-contrib-boolean-parser
 ```
 
