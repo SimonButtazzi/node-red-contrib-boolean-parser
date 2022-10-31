@@ -12,7 +12,7 @@ A [Node-RED](http://nodered.org) node to parse and convert several types of on/o
 Run the following command in your Node-RED user directory - typically `~/.node-red`:
 
 ```
-npm install node-red-contrib-power-monitor
+npm install node-red-contrib-boolean-parser
 ```
 
 ### docker
@@ -27,7 +27,7 @@ docker exec -it <containername> /bin/bash
 inside container:
 ```
 cd /data
-npm install node-red-contrib-power-monitor
+npm install node-red-contrib-boolean-parser
 ```
 
 ## Usage
