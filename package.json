@@ -20,6 +20,7 @@
         "node-red",
         "parser",
         "boolean",
+        "bool",
         "translator",
         "converter",
         "cast",
@@ -31,5 +32,8 @@
             "bool": "boolean-parser.js"
         },
         "version": ">=3.0.0"
+    },
+    "engines": {
+        "node": ">=12.0.0"
     }
 }
