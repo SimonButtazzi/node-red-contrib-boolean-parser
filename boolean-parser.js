@@ -16,7 +16,7 @@
              if (value === formats[format].false) return false;
          }
          if (!strict) {
-             if (IsNumeric(value)) return Boolean(value);
+             if (typeof value === "number") return Boolean(value);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
                  for (var format in formats) {
@@ -48,21 +48,21 @@
         };
         this.formats = {
             "boolstr": {"true": "true", "false": "false"},
-            "TrueFalse": {"true": "True", "false": "False"},
-            "TRUEFALSE": {"true": "TRUE", "false": "FALSE"},
+            "True-False": {"true": "True", "false": "False"},
+            "TRUE-FALSE": {"true": "TRUE", "false": "FALSE"},
             "int": {"true": 1, "false": 0},
             "intstr": {"true": "1", "false": "0"},
-            "startstop": {"true": "start", "false": "stop"},
-            "startedtstopped": {"true": "started", "false": "stopped"},
-            "enabledisable": {"true": "enable", "false": "disable"},
-            "enableddisabled": {"true": "enabled", "false": "disabled"},
-            "activateddeactivated": {"true": "activated", "false": "deactivated"},
-            "activeinactive": {"true": "active", "false": "inactive"},
-            "runningstopped": {"true": "running", "false": "stopped"},
-            "runstop": {"true": "run", "false": "stop"},
-            "onoff": {"true": "on", "false": "off"},
-            "OnOff": {"true": "On", "false": "Off"},
-            "ONOFF": {"true": "ON", "false": "OFF"}
+            "start-stop": {"true": "start", "false": "stop"},
+            "started-stopped": {"true": "started", "false": "stopped"},
+            "enable-disable": {"true": "enable", "false": "disable"},
+            "enabled-disabled": {"true": "enabled", "false": "disabled"},
+            "activated-deactivated": {"true": "activated", "false": "deactivated"},
+            "active-inactive": {"true": "active", "false": "inactive"},
+            "running-stopped": {"true": "running", "false": "stopped"},
+            "run-stop": {"true": "run", "false": "stop"},
+            "on-off": {"true": "on", "false": "off"},
+            "On-Off": {"true": "On", "false": "Off"},
+            "ON-OFF": {"true": "ON", "false": "OFF"}
         };
 
 

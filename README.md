@@ -68,6 +68,11 @@ for boolean true and false
 ## Examples
 tbd
 
+## Known Issues
+
+* context documentation
+* readme.md incomplete
+
 ## Contribute
 
 There are several ways to contribute to this project. You can [report](https://github.com/SimonButtazzi/node-red-contrib-boolean-parser/issues) bugs or [ask](https://github.com/SimonButtazzi/node-red-contrib-boolean-parser/issues) for new features directly on GitHub.
