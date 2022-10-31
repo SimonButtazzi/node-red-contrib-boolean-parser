@@ -12,16 +12,16 @@
      function parseIntput(value, formats, strict) {
          if (value === null) return null;
          for (var format in formats) {
-             if (value === a[propt].true) return true;
-             if (value === a[propt].false) return false;
+             if (value === formats[format].true) return true;
+             if (value === formats[format].false) return false;
          }
          if (!strict) {
              if (IsNumeric(value)) return Boolean(value);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
                  for (var format in formats) {
-                     if (valuemod === a[propt].true) return true;
-                     if (valuemod === a[propt].false) return false;
+                     if (valuemod === formats[format].true) return true;
+                     if (valuemod === formats[format].false) return false;
                  }
              }
              return Boolean(value);
