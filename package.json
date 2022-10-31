@@ -29,6 +29,7 @@
     "node-red": {
         "nodes": {
             "bool": "boolean-parser.js"
-        }
+        },
+        "version": ">=3.0.0"
     }
 }
