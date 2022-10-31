@@ -29,7 +29,7 @@
          return null;
      }
 
-    function boolean_parser(config) {
+    function bool(config) {
 
         RED.nodes.createNode(this, config);
 
@@ -80,6 +80,6 @@
         });
     }
 
-    RED.nodes.registerType("boolean-parser", boolean_parser);
+    RED.nodes.registerType("bool", bool);
 
 };

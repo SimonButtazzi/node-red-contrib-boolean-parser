@@ -28,7 +28,7 @@
     "main": "boolean-parser.js",
     "node-red": {
         "nodes": {
-            "boolean-parser": "boolean-parser.js"
+            "bool": "boolean-parser.js"
         }
     }
 }
