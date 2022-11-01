@@ -112,8 +112,7 @@ See [JSON](examples/Handle Null.json) for import.
 
 ## Known Issues
 
-* context documentation
-* readme.md incomplete
+* ?
 
 ## Contribute
 
@@ -126,4 +125,4 @@ And of course you can always buy me a beer, coffee, ... via the donation button:
 
 ## License
 
-tbd
+MIT

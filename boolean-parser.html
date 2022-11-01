@@ -29,11 +29,11 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-inputField"><i class="icon-tag"></i> Input Field</label>
+        <label for="node-input-inputField"><i class="icon-tag"></i> Input field</label>
         <input type="text" id="node-input-inputField" placeholder="e.g. payload">
     </div>
         <div class="form-row">
-        <label for="node-input-outputField"><i class="icon-tag"></i> Output Field</label>
+        <label for="node-input-outputField"><i class="icon-tag"></i> Output field</label>
         <input type="text" id="node-input-outputField" placeholder="e.g. payload">
     </div>
     <div class="form-row">
@@ -76,7 +76,54 @@
 </script>
 
 <script type="text/x-red" data-help-name="bool">
+    <p>Node for parsing input values to true and false and providing formatted output.</p>
+    <h3>Input</h3>
+    <p>Choose input property by <em>input field</em>>, default: <code>msg.payload</code><br />Other properties will be kept in output message.</p>
 
-<!-- @todo docs here -->
+    <h3>Output</h3>
+    <p>
+        Choose input property by <em>input field</em>>, default: <code>msg.payload</code><br />
+        Property will be set/overwritten. Other properties will be kept in output message.
+    </p>
+    <p>
+        It is not possible to set a property on a scalar! Example:<br />
+        Input <code> <code>msg.payload=true</code><br />
+        Output<code>msg.payload.message="start"</code>
+    </p>
+
+    <h3>Output formats</h3>
+    <dl class="message-properties">
+        <dt>boolstr<span class="property-type">boolean</span></dt><dd>true: true<br />false: false</dd>
+        <dt>True-False<span class="property-type">string</span></dt><dd>true: True<br />false: False</dd>
+        <dt>TRUE-FALSE<span class="property-type">string</span></dt><dd>true: TRUE<br />false: FALSE</dd>
+        <dt>int<span class="property-type">integer</span></dt><dd>true: 1<br />false: 0</dd>
+        <dt>intstr<span class="property-type">string</span></dt><dd>true: 1<br />false: 0</dd>
+        <dt>start-stop<span class="property-type">string</span></dt><dd>true: start<br />false: stop</dd>
+        <dt>started-stopped<span class="property-type">string</span></dt><dd>true: started<br />false: stopped</dd>
+        <dt>enable-disable<span class="property-type">string</span></dt><dd>true: enable<br />false: disable</dd>
+        <dt>enabled-disabled<span class="property-type">string</span></dt><dd>true: enabled<br />false: disabled</dd>
+        <dt>activated-deactivated<span class="property-type">string</span></dt><dd>true: activated<br />false: deactivated</dd>
+        <dt>active-inactive<span class="property-type">string</span></dt><dd>true: active<br />false: inactive</dd>
+        <dt>running-stopped<span class="property-type">string</span></dt><dd>true: running<br />false: stopped</dd>
+        <dt>run-stop<span class="property-type">string</span></dt><dd>true: run<br />false: stop</dd>
+        <dt>on-off<span class="property-type">string</span></dt><dd>true: on<br />false: off</dd>
+        <dt>On-Off<span class="property-type">string</span></dt><dd>true: On<br />false: Off</dd>
+        <dt>ON-OFF<span class="property-type">string</span></dt><dd>true: ON<br />false: OFF</dd>
+    </dl>
+
+    <h3>Handle null</h3>
+    <p>There are different strategies to handle values, which can't be detected as true or false clearly.</p>
+    <ul>
+        <li>keep as null</li>
+        <li>treat as true</li>
+        <li>treat as false</li>
+        <li>stop flow</li>
+    </ul>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://flows.nodered.org/node/node-red-contrib-boolean-parser">Node-RED Flows</a></li>
+        <li><a href="https://github.com/SimonButtazzi/node-red-contrib-boolean-parser/issues">Github</a> - Docs, Bugs, PullRequests, Stars, Likes, ...</li>
+    </ul>
 
 </script>
