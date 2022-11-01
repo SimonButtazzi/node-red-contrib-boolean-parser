@@ -29,6 +29,27 @@
          return null;
      }
 
+     // see https://dirask.com/posts/JavaScript-get-object-property-by-path-pBvmmp
+     function getObjectPropertyByPath(object, path) {
+         if (object == null) { // null or undefined
+             return object;
+         }
+         const parts = path.split('.');
+         return parts.reduce((object, key) => object?.[key], object);
+     }
+
+     // see https://dirask.com/posts/JavaScript-set-object-property-by-path-DNKXOp
+     function setObjectPropertyByPath(object, path, value) {
+         const parts = path.split('.');
+         const limit = parts.length - 1;
+         for (let i = 0; i < limit; ++i) {
+             const key = parts[i];
+             object = object[key] ?? (object[key] = { });
+         }
+         const key = parts[limit];
+         object[key] = value;
+     }
+
     function bool(config) {
 
         RED.nodes.createNode(this, config);
@@ -67,14 +88,13 @@
 
 
         this.on("input", function(msg) {
-            let value = null;
-            if (typeof(msg[node.inputField]) != "undefined") {
-                value = msg[node.inputField];
-                value = parseIntput(value, node.formats, false);
-            }
-            if (!(value === null && node.handleNull == "stopflow")) {
+            let value = getObjectPropertyByPath(msg, node.inputField);
+            value = parseIntput(value, node.formats, false);
+
+            if (!(value === null && node.handleNull === "stopflow")) {
                 value = (value === null) ? node.handleNullOpts[node.handleNull] : value;
-                msg[node.outputField] = formatOutput(value, node.outputFormat, node.formats);
+                value = formatOutput(value, node.outputFormat, node.formats);
+                setObjectPropertyByPath(msg, node.outputField, value);
                 node.send(msg);
             }
         });
