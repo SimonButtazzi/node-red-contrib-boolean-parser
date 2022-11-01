@@ -42,7 +42,11 @@ npm install node-red-contrib-boolean-parser
 
 Think of a device stating running and stopped. You want to send string like ON or OFF in MQTT, write values like 1 and 0 to influxDB show messages status like enabled and disabled and following nodes exept boolean values.
  
-To be honest nearly every type tranformation can be realized by multiple switch and change nodes or function nodes having individual code (see example tbd). But to keep it simple, stable and universal it is easier to have a node handling this and you don't need to blow up your flows.
+To be honest nearly every type tranformation can be realized by multiple switch and change nodes or function nodes having individual code (see example below). But to keep it simple, stable and universal it is easier to have a node handling this and you don't need to blow up your flows.
+
+![Compared traditional way to change values.](assets/example-compare-traditional-way.png "Compared traditional way to change values.")
+
+Nodes can be configured like this:
 
 ![Node Configuration](assets/node-config.png "Node Configuration")
 
