@@ -24,7 +24,7 @@
              if (typeof value === "number") return Boolean(value);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
-                 for (var format in formats) {
+                 for (format in formats) {
                      if (valuemod === formats[format].true) return true;
                      if (valuemod === formats[format].false) return false;
                  }
