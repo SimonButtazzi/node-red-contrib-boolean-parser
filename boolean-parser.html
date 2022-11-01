@@ -16,10 +16,18 @@
         label: function() {
             return this.name || ">" + this.outputFormat;
         },
-//        oneditprepare: function() {
-            //           this.name = this.name || "";
-            //           this.startthreshold = this.startthreshold || 0;
-//        }
+        oneditprepare: function() {
+            $("#node-input-inputField").typedInput({
+                type:"msg",
+                types:["msg"],
+                typeField: "#node-input-inputField-type"
+            })
+            $("#node-input-outputField").typedInput({
+                type:"msg",
+                types:["msg"],
+                typeField: "#node-input-outputField-type"
+            })
+        }
     });
 </script>
 
@@ -31,10 +39,12 @@
     <div class="form-row">
         <label for="node-input-inputField"><i class="icon-tag"></i> Input Field</label>
         <input type="text" id="node-input-inputField" placeholder="e.g. payload">
+        <input type="hidden" id="node-input-inputField-type">
     </div>
         <div class="form-row">
         <label for="node-input-outputField"><i class="icon-tag"></i> Output Field</label>
         <input type="text" id="node-input-outputField" placeholder="e.g. payload">
+        <input type="hidden" id="node-input-outputField-type">
     </div>
     <div class="form-row">
         <label for="node-input-outputFormat"><i class="icon-tag"></i> Output format</label>
