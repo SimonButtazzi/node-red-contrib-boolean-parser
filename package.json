@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-boolean-parser",
-    "version": "1.1.1",
+    "version": "1.1.5",
     "description": "A Node-RED node to parse and convert several types of on/off, start/stop, true/false values.",
     "homepage": "https://github.com/SimonButtazzi/node-red-contrib-boolean-parser#readme",
     "bugs": {
@@ -11,6 +11,15 @@
         "name": "Simon Buttazzi",
         "email": "simon.buttazzi@gmail.com",
         "url": "https://www.buttazzi.de"
+    },
+    "node-red": {
+        "version": ">=3.0.0",
+        "nodes": {
+            "bool": "boolean-parser.js"
+        }
+    },
+    "engines": {
+        "node": ">=12.0.0"
     },
     "repository": {
         "type": "git",
@@ -26,14 +35,5 @@
         "cast",
         "on-off"
     ],
-    "main": "boolean-parser.js",
-    "node-red": {
-        "nodes": {
-            "bool": "boolean-parser.js"
-        },
-        "version": ">=3.0.0"
-    },
-    "engines": {
-        "node": ">=12.0.0"
-    }
+    "main": "boolean-parser.js"
 }

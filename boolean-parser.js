@@ -10,7 +10,12 @@
      }
 
      function parseIntput(value, formats, strict) {
-         if (value === null) return null;
+         if (value === null
+            || value === "null"
+            || value === "undefined"
+            || value === {}) {
+             return null;
+         }
          for (var format in formats) {
              if (value === formats[format].true) return true;
              if (value === formats[format].false) return false;
