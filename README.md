@@ -94,9 +94,17 @@ If a value cant't be treaten as true or false, (e.g. _null_), it will be handled
 
 ## Examples
 
+### Input and output formatsĸ
+
 ![Example: Several inputs and output conversion](assets/example-conversion.png "Example: Several inputs and output conversion")
 
 See [JSON](examples/conversion.json) for import.
+
+## Null handling
+
+![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example:  Different undefined inputs and conversion strategies")
+
+See [JSON](examples/Handle Null.json) for import.
 
 ## Known Issues
 

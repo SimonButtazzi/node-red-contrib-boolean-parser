@@ -1,0 +1,292 @@
+[
+    {
+        "id": "b3cf48ef368e9747",
+        "type": "tab",
+        "label": "Example Handle Null",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d1d106d10298273d",
+        "type": "junction",
+        "z": "b3cf48ef368e9747",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "11e8f4f90d7db522"
+            ]
+        ]
+    },
+    {
+        "id": "11e8f4f90d7db522",
+        "type": "junction",
+        "z": "b3cf48ef368e9747",
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "91c68bdae62ae880",
+                "6e2dfabca68c53ee",
+                "c6dc92ab6efe8574",
+                "943f85adbfa55abf"
+            ]
+        ]
+    },
+    {
+        "id": "bed6796ee9846cd8",
+        "type": "debug",
+        "z": "b3cf48ef368e9747",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3ebb7b922f699a29",
+        "type": "inject",
+        "z": "b3cf48ef368e9747",
+        "name": "undefined",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 80,
+        "wires": [
+            [
+                "d1d106d10298273d"
+            ]
+        ]
+    },
+    {
+        "id": "91c68bdae62ae880",
+        "type": "bool",
+        "z": "b3cf48ef368e9747",
+        "name": "keep null",
+        "inputField": "payload",
+        "outputField": "payload",
+        "outputFormat": "bool",
+        "handleNull": "null",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "bed6796ee9846cd8"
+            ]
+        ]
+    },
+    {
+        "id": "ce69d6c50eebe5db",
+        "type": "inject",
+        "z": "b3cf48ef368e9747",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "d1d106d10298273d"
+            ]
+        ]
+    },
+    {
+        "id": "d0ac5af4e41d274f",
+        "type": "debug",
+        "z": "b3cf48ef368e9747",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6e2dfabca68c53ee",
+        "type": "bool",
+        "z": "b3cf48ef368e9747",
+        "name": "treat as true",
+        "inputField": "payload",
+        "outputField": "payload",
+        "outputFormat": "bool",
+        "handleNull": "true",
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "d0ac5af4e41d274f"
+            ]
+        ]
+    },
+    {
+        "id": "df7c8db3eb4ea1eb",
+        "type": "debug",
+        "z": "b3cf48ef368e9747",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c6dc92ab6efe8574",
+        "type": "bool",
+        "z": "b3cf48ef368e9747",
+        "name": "treat as false",
+        "inputField": "payload",
+        "outputField": "payload",
+        "outputFormat": "bool",
+        "handleNull": "false",
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "df7c8db3eb4ea1eb"
+            ]
+        ]
+    },
+    {
+        "id": "12e97ec543a46339",
+        "type": "debug",
+        "z": "b3cf48ef368e9747",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "943f85adbfa55abf",
+        "type": "bool",
+        "z": "b3cf48ef368e9747",
+        "name": "stop flow",
+        "inputField": "payload",
+        "outputField": "payload",
+        "outputFormat": "bool",
+        "handleNull": "stopflow",
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "12e97ec543a46339"
+            ]
+        ]
+    },
+    {
+        "id": "4fa8d0fa273b5c4f",
+        "type": "inject",
+        "z": "b3cf48ef368e9747",
+        "name": "null",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "null",
+        "payloadType": "jsonata",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "d1d106d10298273d"
+            ]
+        ]
+    },
+    {
+        "id": "379db04b7acd3ac7",
+        "type": "inject",
+        "z": "b3cf48ef368e9747",
+        "name": "\"undefined\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "undefined",
+        "payloadType": "str",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "d1d106d10298273d"
+            ]
+        ]
+    },
+    {
+        "id": "d6f5cdbd0e469375",
+        "type": "inject",
+        "z": "b3cf48ef368e9747",
+        "name": "\"null\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "null",
+        "payloadType": "str",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "d1d106d10298273d"
+            ]
+        ]
+    }
+]
