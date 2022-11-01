@@ -3,9 +3,18 @@ node-red-contrib-boolean-parser
 
 A [Node-RED](http://nodered.org) node to parse and convert several types of on/off, start/stop, true/false values.
 
----
-**Be careful, this package is still under development.**
+# Telegram bot nodes for Node-RED
+[![Platform](https://img.shields.io/badge/platform-Node--RED-blue)](https://nodered.org)
+![License](https://img.shields.io/github/license/simonbuttazzi/node-red-contrib-boolean-parser.svg)
+[![Downloads](https://img.shields.io/npm/dm/node-red-contrib-boolean-parser.svg)](https://www.npmjs.com/package/node-red-contrib-boolean-parser)
+[![Total Downloads](https://img.shields.io/npm/dt/node-red-contrib-boolean-parser.svg)](https://www.npmjs.com/package/node-red-contrib-boolean-parser)
+[![NPM](https://img.shields.io/npm/v/node-red-contrib-boolean-parser?logo=npm)](https://www.npmjs.org/package/node-red-contrib-boolean-parser)
+[![Known Vulnerabilities](https://snyk.io/test/npm/node-red-contrib-boolean-parser/badge.svg)](https://snyk.io/test/npm/node-red-contrib-boolean-parser)
+[![Package Quality](http://npm.packagequality.com/shield/node-red-contrib-boolean-parser.png)](http://packagequality.com/#?package=node-red-contrib-boolean-parser)
+[![Open Issues](https://img.shields.io/github/issues-raw/simonbuttazzi/node-red-contrib-boolean-parser.svg)](https://github.com/simonbuttazzi/node-red-boolean-parser/issues)
+[![Closed Issues](https://img.shields.io/github/issues-closed-raw/simonbuttazzi/node-red-contrib-boolean-parser.svg)](https://github.com/simonbuttazzi/node-red-contrib-boolean-parser/issues?q=is%3Aissue+is%3Aclosed)
 
+---
 This packages provides an additional node in parser section. You can use it to transform properties describung boolean states. For example running or stopped (String) to 1 or 0 (int). Input values will be detected automatically.
 
 ![node-appearance](assets/node-boolean-parser.png "Node appearance")
