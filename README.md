@@ -88,6 +88,15 @@ for boolean true and false
 * "On" / "Off"
 * "ON" / "OFF"
 
+### Different outputs
+
+There are two ways to send outgoing messages:
+
+1. A combined **single output** sending all messages.
+2. Three **split outputs**, sending messages, seperated by true/false/undefined.
+
+![Output: Single, split](assets/node-single-seperated-outputs.png "Output: Single, split")
+
 ### Input formats
 
 All input values which represent a supportet output format are detected automatically. Additionally common rules try to evaluate values to true or false. Examples:
