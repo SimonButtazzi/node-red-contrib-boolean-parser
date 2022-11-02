@@ -122,11 +122,17 @@ If a value cant't be treaten as true or false, (e.g. _null_), it will be handled
 
 See [JSON](examples/conversion.json) for import.
 
-## Null handling
+### Null handling
 
-![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example:  Different undefined inputs and conversion strategies")
+![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example: Different undefined inputs and conversion strategies")
 
 See [JSON](examples/Handle Null.json) for import.
+
+### Null handling
+
+![Example: Single vs split outputs](assets/example-single-split-output.png "Example: Single vs split outputs")
+
+See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
