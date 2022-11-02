@@ -61,11 +61,11 @@ Nodes can be configured like this:
 
 ### Input field
 
-A field of the message, which contains the value to be parsed.
+A field of the message, which contains the value to be parsed. Sub-properties like _msg.payload.state_ are also valid. 
 
 ### Output field
 
-A field of the message, which should be used for output. A existing field will be overwritten.
+A field of the message, which should be used for output. A existing field will be overwritten. Sub-properties like _msg.payload.state_ are also valid.
 
 ### Supportet output formats
 for boolean true and false
