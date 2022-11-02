@@ -4,14 +4,18 @@
         color: '#DEBD5C',
         defaults: {
             name: {value:""},
+            outputs: {value: 1},
             inputField: {value:"payload"},
             outputField: {value:"payload"},
             outputFormat: {value:"bool"},
             handleNull: {value: "null"}
-
         },
-        inputs:1,
-        outputs:1,
+        inputs: 1,
+        outputs: 1,
+        outputLabels: function(index) {
+            var node = this;
+            let names = ["true", "false", "undefined"];
+            return node.outputs == 1 ? "" :  names[index];},
         icon: "boolean-parser.png",
         label: function() {
             return this.name || ">" + this.outputFormat;
@@ -83,6 +87,13 @@
             <input type="checkbox" id="node-input-handleNull" style="display: inline-block; width: auto; vertical-align: top;">
         </div>
     </div -->
+    <div class="form-row">
+       <label for="node-input-outputs"><i class="icon-tag"></i> Split outputs</label>
+       <select id="node-input-outputs">
+           <option value="1">combined output</option>
+           <option value="3">split outputs by true, false, undefined</option>
+        </select>
+    </div>
 </script>
 
 <script type="text/x-red" data-help-name="bool">

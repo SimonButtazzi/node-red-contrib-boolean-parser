@@ -61,11 +61,11 @@ Nodes can be configured like this:
 
 ### Input field
 
-A field of the message, which contains the value to be parsed.
+A field of the message, which contains the value to be parsed. Sub-properties like _msg.payload.state_ are also valid. 
 
 ### Output field
 
-A field of the message, which should be used for output. A existing field will be overwritten.
+A field of the message, which should be used for output. A existing field will be overwritten. Sub-properties like _msg.payload.state_ are also valid.
 
 ### Supportet output formats
 for boolean true and false
@@ -87,6 +87,15 @@ for boolean true and false
 * "on" / "off"
 * "On" / "Off"
 * "ON" / "OFF"
+
+### Different outputs
+
+There are two ways to send outgoing messages:
+
+1. A combined **single output** sending all messages.
+2. Three **split outputs**, sending messages, seperated by true/false/undefined.
+
+![Output: Single, split](assets/node-single-seperated-outputs.png "Output: Single, split")
 
 ### Input formats
 
@@ -113,11 +122,17 @@ If a value cant't be treaten as true or false, (e.g. _null_), it will be handled
 
 See [JSON](examples/conversion.json) for import.
 
-## Null handling
+### Null handling
 
-![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example:  Different undefined inputs and conversion strategies")
+![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example: Different undefined inputs and conversion strategies")
 
 See [JSON](examples/Handle Null.json) for import.
+
+### Null handling
+
+![Example: Single vs split outputs](assets/example-single-split-output.png "Example: Single vs split outputs")
+
+See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 

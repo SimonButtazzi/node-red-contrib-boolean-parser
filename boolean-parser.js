@@ -63,6 +63,7 @@
         var node = this;
 
         this.name = config.name || "";
+        this.outputs = config.outputs || 1;
         this.inputField = config.inputField || "payload";
         this.outputField = config.outputField || "payload";
         this.outputFormat = config.outputFormat || "bool";
@@ -94,18 +95,33 @@
 
 
         this.on("input", function(msg) {
-            let value = getObjectPropertyByPath(msg, node.inputField);
-            value = parseIntput(value, node.formats, false);
+            let valueIn = parseIntput(
+                getObjectPropertyByPath(msg, node.inputField),
+                node.formats,
+                false);
 
-            if (!(value === null && node.handleNull === "stopflow")) {
-                value = (value === null) ? node.handleNullOpts[node.handleNull] : value;
-                value = formatOutput(value, node.outputFormat, node.formats);
-                setObjectPropertyByPath(msg, node.outputField, value);
-                node.send(msg);
+            if (!(valueIn === null && node.handleNull === "stopflow")) {
+                let valueRaw = (valueIn === null) ? node.handleNullOpts[node.handleNull] : valueIn;
+                let valueOut = formatOutput(valueRaw, node.outputFormat, node.formats);
+                setObjectPropertyByPath(msg, node.outputField, valueOut);
+                if (node.outputs == 1) {
+                    node.send(msg);
+                } else {
+                    switch (valueRaw) {
+                        case true:
+                            node.send([[msg], [], []]);
+                            break;
+                        case false:
+                            node.send([[], [msg], []]);
+                            break;
+                        default:
+                            node.send([[], [], [msg]]);
+                            break;
+                    }
+                }
             }
         });
     }
 
     RED.nodes.registerType("bool", bool);
-
 };
