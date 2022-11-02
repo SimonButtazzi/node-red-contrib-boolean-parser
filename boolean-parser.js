@@ -109,13 +109,13 @@
                 } else {
                     switch (valueRaw) {
                         case true:
-                            node.send([[valueOut], [], []]);
+                            node.send([[msg], [], []]);
                             break;
                         case false:
-                            node.send([[], [valueOut], []]);
+                            node.send([[], [msg], []]);
                             break;
                         default:
-                            node.send([[], [], [valueOut]]);
+                            node.send([[], [], [msg]]);
                             break;
                     }
                 }
