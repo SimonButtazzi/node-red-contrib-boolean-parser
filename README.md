@@ -149,4 +149,4 @@ And of course you can always buy me a beer, coffee, ... via the donation button:
 
 ## License
 
-MIT
+[MIT](LICENSE.md)
