@@ -63,6 +63,7 @@
         var node = this;
 
         this.name = config.name || "";
+        this.outputs = config.outputs || 1;
         this.inputField = config.inputField || "payload";
         this.outputField = config.outputField || "payload";
         this.outputFormat = config.outputFormat || "bool";
