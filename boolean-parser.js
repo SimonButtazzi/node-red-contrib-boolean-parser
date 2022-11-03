@@ -4,7 +4,14 @@
 
      function formatOutput(value, format, formats)  {
          if (typeof(formats[format]) != "undefined") {
-             return value ? formats[format].true : formats[format].false;
+             switch (value) {
+                 case true:
+                     return formats[format].true;
+                 case false:
+                     return formats[format].false;
+                 default:
+                     return null;
+             }
          }
          return Boolean(value);
      }
