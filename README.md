@@ -1,9 +1,8 @@
 node-red-contrib-boolean-parser
 ==============================
 
-A [Node-RED](http://nodered.org) node to parse and convert several types of on/off, start/stop, true/false values.
+# A [Node-RED](http://nodered.org) node to parse and convert several types of on/off, start/stop, true/false values.
 
-# Telegram bot nodes for Node-RED
 [![Platform](https://img.shields.io/badge/platform-Node--RED-blue)](https://nodered.org)
 ![License](https://img.shields.io/github/license/simonbuttazzi/node-red-contrib-boolean-parser.svg)
 [![Downloads](https://img.shields.io/npm/dm/node-red-contrib-boolean-parser.svg)](https://www.npmjs.com/package/node-red-contrib-boolean-parser)
