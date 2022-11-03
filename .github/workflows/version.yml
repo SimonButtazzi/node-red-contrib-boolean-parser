@@ -18,8 +18,12 @@ jobs:
       - name: Changelog
         uses: scottbrenner/generate-changelog-action@master
         id: Changelog
+        with:
+          from-tag: v1.1.1
+          to-tag: HEAD
       - run: git config --global user.name 'Github CI'
       - run: git config --global user.email 'simon.buttazzi@gmail.com'
       - run: npm config set git-tag-version true
       - run: npm version patch -m '[RELEASE] %s'
       - run: git push
+      - run: git push --tags
