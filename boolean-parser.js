@@ -2,18 +2,18 @@
 
     "use strict";
 
-     function formatOutput(value, format, formats)  {
+     function formatOutput(value, format, formats, node)  {
          if (typeof(formats[format]) != "undefined") {
-             switch (value) {
-                 case true:
-                     return formats[format].true;
-                 case false:
-                     return formats[format].false;
-                 default:
-                     return null;
+             if (value === true) {
+                 return formats[format].true;
+             } else if (value === false) {
+                 return formats[format].false;
+             } else {
+                 return null;
              }
          }
-         return Boolean(value);
+         node.log("unknown format: " + format);
+        return (value === null) ? null : Boolean(value);
      }
 
      function parseIntput(value, formats, strict) {
@@ -82,6 +82,7 @@
             "stopflow": null
         };
         this.formats = {
+            "bool": {"true": true, "false": false},
             "boolstr": {"true": "true", "false": "false"},
             "True-False": {"true": "True", "false": "False"},
             "TRUE-FALSE": {"true": "TRUE", "false": "FALSE"},
@@ -109,7 +110,7 @@
 
             if (!(valueIn === null && node.handleNull === "stopflow")) {
                 let valueRaw = (valueIn === null) ? node.handleNullOpts[node.handleNull] : valueIn;
-                let valueOut = formatOutput(valueRaw, node.outputFormat, node.formats);
+                let valueOut = formatOutput(valueRaw, node.outputFormat, node.formats, node);
                 setObjectPropertyByPath(msg, node.outputField, valueOut);
                 if (node.outputs == 1) {
                     node.send(msg);
