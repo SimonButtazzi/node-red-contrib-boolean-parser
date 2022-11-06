@@ -12,7 +12,6 @@
                  return null;
              }
          }
-         node.log("unknown format: " + format);
         return (value === null) ? null : Boolean(value);
      }
 
@@ -100,22 +99,29 @@
             "On-Off": {"true": "On", "false": "Off"},
             "ON-OFF": {"true": "ON", "false": "OFF"}
         };
+        this.statuses = {
+            true: {"fill": "green", "shape":"dot"},
+            false: {"fill": "red", "shape":"ring"},
+            null: {"fill": "grey", "shape":"dot"}
+        };
 
 
         this.on("input", function(msg) {
+            let valueRaw = getObjectPropertyByPath(msg, node.inputField);
             let valueIn = parseIntput(
-                getObjectPropertyByPath(msg, node.inputField),
+                valueRaw,
                 node.formats,
                 false);
-
+            let valueUnformatted = null;
+            let valueOut = null;
             if (!(valueIn === null && node.handleNull === "stopflow")) {
-                let valueRaw = (valueIn === null) ? node.handleNullOpts[node.handleNull] : valueIn;
-                let valueOut = formatOutput(valueRaw, node.outputFormat, node.formats, node);
+                valueUnformatted = (valueIn === null) ? node.handleNullOpts[node.handleNull] : valueIn;
+                valueOut = formatOutput(valueUnformatted, node.outputFormat, node.formats, node);
                 setObjectPropertyByPath(msg, node.outputField, valueOut);
                 if (node.outputs == 1) {
                     node.send(msg);
                 } else {
-                    switch (valueRaw) {
+                    switch (valueUnformatted) {
                         case true:
                             node.send([[msg], [], []]);
                             break;
@@ -128,6 +134,11 @@
                     }
                 }
             }
+            node.status({
+                fill: node.statuses[valueUnformatted].fill,
+                shape: node.statuses[valueUnformatted].shape,
+                text: '' + valueRaw +  ' ' + ((valueIn === null && node.handleNull === "stopflow") ? '#' : '> ' + valueOut)
+            });
         });
     }
 
