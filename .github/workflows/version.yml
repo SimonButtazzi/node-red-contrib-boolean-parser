@@ -21,6 +21,7 @@ jobs:
         with:
           from-tag: v1.1.1
           to-tag: HEAD
+      - run: git status
       - run: git config --global user.name 'Github CI'
       - run: git config --global user.email 'simon.buttazzi@gmail.com'
       - run: npm config set git-tag-version true
