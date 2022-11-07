@@ -104,6 +104,15 @@ All input values which represent a supportet output format are detected automati
 * "" -> false
 * 42 -> true
 
+### Input status
+
+The last processed value is displayed as node status:
+
+* **Color**: true (green), false (red), null (grey)
+* **Text**: _input value_ > _output value_, (#) if flow was stopped
+
+![Node status](assets/node-status.png "Node status")
+
 ### Handle null value
 
 If a value cant't be treaten as true or false, (e.g. _null_), it will be handled as defined by _Handle null values_:
@@ -127,7 +136,7 @@ See [JSON](examples/conversion.json) for import.
 
 See [JSON](examples/Handle Null.json) for import.
 
-### Null handling
+### Split outputs
 
 ![Example: Single vs split outputs](assets/example-single-split-output.png "Example: Single vs split outputs")
 
@@ -135,7 +144,7 @@ See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
-* ?
+* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled al _null_ automatically.
 
 ## Contribute
 
