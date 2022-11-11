@@ -35,5 +35,12 @@
         "cast",
         "on-off"
     ],
-    "main": "boolean-parser.js"
+    "main": "boolean-parser.js",
+    "auto-changelog": {
+        "template": "keepachangelog",
+        "unreleased": false,
+        "commitLimit": false,
+        "ignoreCommitPattern": "^\\[RELEASE\\]",
+        "tagPattern": "^v[0-9]+\\.[0-9\\.]+$"
+    }
 }
