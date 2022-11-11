@@ -31,6 +31,19 @@
                 types:["msg"],
                 typeField: "#node-input-outputField-type"
             })
+            $("#node-input-handleNull").typedInput({
+                types: [
+                    {
+                        value: "null",
+                        options: [
+                            {value:"null" , label:"keep null" },
+                            {value:"true" , label:"treat as true" },
+                            {value:"false" , label:"treat as false" },
+                            {value:"stopflow" , label:"stop flow" },
+                        ]
+                    }
+                ]
+            })
             $("#node-input-outputFormat").typedInput({
                 types: [
                     {
@@ -84,6 +97,10 @@
         <input type="hidden" id="node-input-inputField-type">
     </div>
         <div class="form-row">
+        <label for="node-input-handleNull"><i class="icon-tag"></i> Handle <i>null</i> inputs</label>
+        <input type="text" id="node-input-handleNull">
+    </div>
+    <div class="form-row">
         <label for="node-input-outputField"><i class="icon-tag"></i> Output field</label>
         <input type="text" id="node-input-outputField" placeholder="e.g. payload">
         <input type="hidden" id="node-input-outputField-type">
@@ -91,15 +108,6 @@
     <div class="form-row">
         <label for="node-input-outputFormat"><i class="icon-tag"></i> Output format</label>
         <input type="text" id="node-input-outputFormat">
-    </div>
-    <div class="form-row">
-        <label for="node-input-handleNull"><i class="icon-tag"></i> Handle <i>null</i> value</label>
-        <select id="node-input-handleNull">
-            <option value="null">keep null</option>
-            <option value="true">treat as true</option>
-            <option value="false">treat as false</option>
-            <option value="stopflow">stop flow</option>
-        </select>
     </div>
     <div class="form-row">
        <label for="node-input-outputs"><i class="icon-tag"></i> Split outputs</label>
