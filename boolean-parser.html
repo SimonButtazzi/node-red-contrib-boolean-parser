@@ -31,6 +31,44 @@
                 types:["msg"],
                 typeField: "#node-input-outputField-type"
             })
+            $("#node-input-outputFormat").typedInput({
+                types: [
+                    {
+                        value: "boolstr",
+                        options: function() {
+                            let options = [];
+                            let data =
+                            {
+                                "bool": {"true": true, "false": false},
+                                "boolstr": {"true": "true", "false": "false"},
+                                "True-False": {"true": "True", "false": "False"},
+                                "TRUE-FALSE": {"true": "TRUE", "false": "FALSE"},
+                                "int": {"true": 1, "false": 0},
+                                "intstr": {"true": "1", "false": "0"},
+                                "start-stop": {"true": "start", "false": "stop"},
+                                "started-stopped": {"true": "started", "false": "stopped"},
+                                "enable-disable": {"true": "enable", "false": "disable"},
+                                "enabled-disabled": {"true": "enabled", "false": "disabled"},
+                                "activated-deactivated": {"true": "activated", "false": "deactivated"},
+                                "active-inactive": {"true": "active", "false": "inactive"},
+                                "running-stopped": {"true": "running", "false": "stopped"},
+                                "run-stop": {"true": "run", "false": "stop"},
+                                "on-off": {"true": "on", "false": "off"},
+                                "On-Off": {"true": "On", "false": "Off"},
+                                "ON-OFF": {"true": "ON", "false": "OFF"}
+                            };
+                            for(let key in data) {
+                                let quote = typeof (data[key].true) === "string" ? '"' : '';
+                                options.push({
+                                    value: key,
+                                    label: quote + data[key].true + quote + ' / ' + quote + data[key].false + quote
+                                });
+                            }
+                            return options;
+                        }()
+                    }
+                ]
+            })
         }
     });
 </script>
@@ -52,25 +90,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-outputFormat"><i class="icon-tag"></i> Output format</label>
-        <select id="node-input-outputFormat">
-            <option value="bool">true / false</option>
-            <option value="boolstr">"true" / "false"</option>
-            <option value="True-False">"True" / "False"</option>
-            <option value="TRUE-FALSE">"TRUE" / "FALSE"</option>
-            <option value="int">1 / 0</option>
-            <option value="intstr">"1" / "0"</option>
-            <option value="start-stop">"start" / "stop"</option>
-            <option value="started-stopped">"started" / "stopped"</option>
-            <option value="enable-disable">"enable" / "disable"</option>
-            <option value="enabled-disabled">"enabled" / "disabled"</option>
-            <option value="activated-deactivated">"activated" / "deactivated"</option>
-            <option value="active-inactive">"active" / "inactive"</option>
-            <option value="running-stopped">"running" / "stopped"</option>
-            <option value="run-stop">"run" / "stop"</option>
-            <option value="on-off">"on" / "off"</option>
-            <option value="On-Off">"On" / "Off"</option>
-            <option value="ON-OFF">"ON" / "OFF"</option>
-        </select>
+        <input type="text" id="node-input-outputFormat">
     </div>
     <div class="form-row">
         <label for="node-input-handleNull"><i class="icon-tag"></i> Handle <i>null</i> value</label>
