@@ -8,7 +8,7 @@
             inputField: {value:"payload"},
             outputField: {value:"payload"},
             outputFormat: {value:"bool"},
-            handleNull: {value: "null"}
+            handleNull: {value: "null"},
         },
         inputs: 1,
         outputs: 1,
@@ -82,6 +82,17 @@
                     }
                 ]
             })
+            $("#node-input-outputs").typedInput({
+                types: [
+                    {
+                        value: "null",
+                        options: [
+                            {value:"1" , label:"combined output" },
+                            {value:"3" , label:"split outputs by true, false, undefined" },
+                        ]
+                    }
+                ]
+            })
         }
     });
 </script>
@@ -111,10 +122,7 @@
     </div>
     <div class="form-row">
        <label for="node-input-outputs"><i class="icon-tag"></i> Split outputs</label>
-       <select id="node-input-outputs">
-           <option value="1">combined output</option>
-           <option value="3">split outputs by true, false, undefined</option>
-        </select>
+       <input type="text" id="node-input-outputs">
     </div>
 </script>
 
