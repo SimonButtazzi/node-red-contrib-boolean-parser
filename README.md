@@ -48,7 +48,7 @@ npm install node-red-contrib-boolean-parser
 
 ## Usage
 
-Think of a device stating running and stopped. You want to send string like ON or OFF in MQTT, write values like 1 and 0 to influxDB show messages status like enabled and disabled and following nodes exept boolean values.
+Think of a device stating running and stopped. You want to send string like ON or OFF in MQTT, write values like 1 and 0 to influxDB show messages status like enabled and disabled and following nodes exept boolean values in inverted logic.
  
 To be honest nearly every type tranformation can be realized by multiple switch and change nodes or function nodes having individual code (see example below). But to keep it simple, stable and universal it is easier to have a node handling this and you don't need to blow up your flows.
 
@@ -62,6 +62,21 @@ Nodes can be configured like this:
 
 A field of the message, which contains the value to be parsed. Sub-properties like _msg.payload.state_ are also valid. 
 
+### Invert input
+
+The logic can be inverted. An input detected as `true` will be handled as `false` and vice versa.
+
+Default is false (no inversion).
+
+### Handle null value
+
+If a value cant't be treaten as true or false, (e.g. _null_), it will be handled as defined by _Handle null values_:
+
+* keep as null
+* treat as true
+* treat as false
+* stop flow
+* 
 ### Output field
 
 A field of the message, which should be used for output. A existing field will be overwritten. Sub-properties like _msg.payload.state_ are also valid.
@@ -92,7 +107,7 @@ for boolean true and false
 There are two ways to send outgoing messages:
 
 1. A combined **single output** sending all messages.
-2. Three **split outputs**, sending messages, seperated by true/false/undefined.
+2. Three **split outputs**, sending messages, seperated by `true`, `false`, `undefined`.
 
 ![Output: Single, split](assets/node-single-seperated-outputs.png "Output: Single, split")
 
@@ -104,23 +119,17 @@ All input values which represent a supportet output format are detected automati
 * "" -> false
 * 42 -> true
 
-### Input status
+### Output status
 
 The last processed value is displayed as node status:
 
-* **Color**: true (green), false (red), null (grey)
-* **Text**: _input value_ > _output value_, (#) if flow was stopped
+* **Color**: true (green), false (red) or null (grey)
+* **Text**:
+  * _input value_
+  * `>` or `!>` for inverted input
+  * _output value_ or `#` if flow was stopped
 
 ![Node status](assets/node-status.png "Node status")
-
-### Handle null value
-
-If a value cant't be treaten as true or false, (e.g. _null_), it will be handled as defined by _Handle null values_:
-
-* keep as null
-* treat as true
-* treat as false
-* stop flow
 
 ## Examples
 
