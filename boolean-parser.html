@@ -9,6 +9,7 @@
             outputField: {value:"payload"},
             outputFormat: {value:"bool"},
             handleNull: {value: "null"},
+            invert: {value: false},
         },
         inputs: 1,
         outputs: 1,
@@ -18,7 +19,7 @@
             return node.outputs == 1 ? "" :  names[index];},
         icon: "boolean-parser.png",
         label: function() {
-            return this.name || ">" + this.outputFormat;
+            return this.name || ((this.invert ? '! ' : '>') + this.outputFormat);
         },
         oneditprepare: function() {
             $("#node-input-inputField").typedInput({
@@ -107,7 +108,11 @@
         <input type="text" id="node-input-inputField" placeholder="e.g. payload">
         <input type="hidden" id="node-input-inputField-type">
     </div>
-        <div class="form-row">
+    <div class="form-row">
+            <label for="node-input-invert" style="width: 120px;">Invert input</label>
+            <input type="checkbox" id="node-input-invert" style="display: inline-block; width: auto; vertical-align: top;">
+    </div>
+    <div class="form-row">
         <label for="node-input-handleNull"><i class="icon-tag"></i> Handle <i>null</i> inputs</label>
         <input type="text" id="node-input-handleNull">
     </div>

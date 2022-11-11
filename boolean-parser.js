@@ -62,6 +62,13 @@
          object[key] = value;
      }
 
+     function handleInvert(value, invert) {
+         if(typeof value == "boolean" && invert === true) {
+             value = !value;
+         }
+         return value;
+     }
+
     function bool(config) {
 
         RED.nodes.createNode(this, config);
@@ -74,6 +81,8 @@
         this.outputField = config.outputField || "payload";
         this.outputFormat = config.outputFormat || "bool";
         this.handleNull = config.handleNull || "null";
+        this.invert = Boolean(config.invert  || false);
+
         this.handleNullOpts = {
             "null": null,
             "true": true,
@@ -105,7 +114,6 @@
             null: {"fill": "grey", "shape":"dot"}
         };
 
-
         this.on("input", function(msg) {
             let valueRaw = getObjectPropertyByPath(msg, node.inputField);
             let valueIn = parseIntput(
@@ -115,7 +123,7 @@
             let valueUnformatted = null;
             let valueOut = null;
             if (!(valueIn === null && node.handleNull === "stopflow")) {
-                valueUnformatted = (valueIn === null) ? node.handleNullOpts[node.handleNull] : valueIn;
+                valueUnformatted = (valueIn === null) ? node.handleNullOpts[node.handleNull] : handleInvert(valueIn, node.invert);
                 valueOut = formatOutput(valueUnformatted, node.outputFormat, node.formats, node);
                 setObjectPropertyByPath(msg, node.outputField, valueOut);
                 if (node.outputs == 1) {
@@ -137,7 +145,7 @@
             node.status({
                 fill: node.statuses[valueUnformatted].fill,
                 shape: node.statuses[valueUnformatted].shape,
-                text: '' + valueRaw +  ' ' + ((valueIn === null && node.handleNull === "stopflow") ? '#' : '> ' + valueOut)
+                text: '' + valueRaw +  ' ' + ((valueIn === null && node.handleNull === "stopflow") ? '#' : (node.invert ? '!' : '') + '> ' + valueOut)
             });
         });
     }
