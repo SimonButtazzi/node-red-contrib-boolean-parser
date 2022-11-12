@@ -41,6 +41,13 @@
         "unreleased": false,
         "commitLimit": false,
         "ignoreCommitPattern": "^\\[RELEASE\\]",
-        "tagPattern": "^v[0-9]+\\.[0-9\\.]+$"
+        "tagPattern": "^v[0-9]+\\.[0-9\\.]+$",
+        "package": true,
+        "prepend": false
+    },
+    "scripts": {
+        "preversion": "",
+        "version": "auto-changelog && git add CHANGELOG.md",
+        "postversion": ""
     }
 }

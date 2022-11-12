@@ -24,6 +24,7 @@ jobs:
       - run: git status
       - run: git config --global user.name 'Github CI'
       - run: git config --global user.email 'simon.buttazzi@gmail.com'
+      - run: npm install -g auto-changelog
       - run: npm config set git-tag-version true
       - run: npm version patch -m '[RELEASE] %s'
       - run: git push
