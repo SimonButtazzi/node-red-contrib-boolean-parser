@@ -45,7 +45,7 @@
     },
     "scripts": {
         "preversion": "",
-        "version": "auto-changelog && git add CHANGELOG.md",
+        "version": "auto-changelog -p && git add CHANGELOG.md",
         "postversion": "cp CHANGELOG.md test123.md"
     }
 }
