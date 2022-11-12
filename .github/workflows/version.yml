@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - main
+      - test-changelog
 
 jobs:
   version:
     name: release
     runs-on: ubuntu-latest
-    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
+    if: "!startsWith(github.event.head_commit.message, '[TEST]')"
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -18,6 +19,6 @@ jobs:
       - run: git config --global user.name 'Github CI'
       - run: git config --global user.email 'simon.buttazzi@gmail.com'
       - run: npm config set git-tag-version true
-      - run: npm version patch -m '[RELEASE] %s'
+      - run: npm version patch -m '[TEST] %s'
       - run: git push
-      - run: git push --tags
+#      - run: git push --tags
