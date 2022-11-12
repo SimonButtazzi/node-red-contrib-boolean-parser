@@ -44,7 +44,7 @@
         "tagPattern": "^v[0-9]+\\.[0-9\\.]+$"
     },
     "scripts": {
-        "preversion": "npm install -g npm auto-changelog",
+        "preversion": "",
         "version": "auto-changelog && git add CHANGELOG.md",
         "postversion": "cp CHANGELOG.md test123.md"
     }
