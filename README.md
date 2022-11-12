@@ -76,7 +76,7 @@ If a value cant't be treaten as true or false, (e.g. _null_), it will be handled
 * treat as true
 * treat as false
 * stop flow
-* 
+ 
 ### Output field
 
 A field of the message, which should be used for output. A existing field will be overwritten. Sub-properties like _msg.payload.state_ are also valid.
