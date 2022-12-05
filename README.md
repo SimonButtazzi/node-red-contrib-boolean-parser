@@ -153,7 +153,7 @@ See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
-* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled al _null_ automatically.
+* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled as _null_ automatically.
 
 ## Contribute
 
