@@ -1,7 +1,7 @@
 node-red-contrib-boolean-parser
 ==============================
 
-# A [Node-RED](http://nodered.org) node to parse and convert several types of on/off, start/stop, true/false values.
+# A [Node-RED](http://nodered.org) node to parse, convert and format several types of on/off, start/stop, true/false values.
 
 [![Platform](https://img.shields.io/badge/platform-Node--RED-blue)](https://nodered.org)
 ![License](https://img.shields.io/github/license/simonbuttazzi/node-red-contrib-boolean-parser.svg)
@@ -57,6 +57,8 @@ To be honest nearly every type tranformation can be realized by multiple switch 
 Nodes can be configured like this:
 
 ![Node Configuration](assets/node-config.png "Node Configuration")
+
+For detailed description of configuration settings see below.
 
 ### Input field
 
