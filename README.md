@@ -1,7 +1,7 @@
 node-red-contrib-boolean-parser
 ==============================
 
-# A [Node-RED](http://nodered.org) node to parse and convert several types of on/off, start/stop, true/false values.
+# A [Node-RED](http://nodered.org) node to parse, convert and format several types of on/off, start/stop, true/false values.
 
 [![Platform](https://img.shields.io/badge/platform-Node--RED-blue)](https://nodered.org)
 ![License](https://img.shields.io/github/license/simonbuttazzi/node-red-contrib-boolean-parser.svg)
@@ -58,6 +58,8 @@ Nodes can be configured like this:
 
 ![Node Configuration](assets/node-config.png "Node Configuration")
 
+For detailed description of configuration settings see below.
+
 ### Input field
 
 A field of the message, which contains the value to be parsed. Sub-properties like _msg.payload.state_ are also valid. 
@@ -76,7 +78,7 @@ If a value cant't be treaten as true or false, (e.g. _null_), it will be handled
 * treat as true
 * treat as false
 * stop flow
-
+ 
 ### Output field
 
 A field of the message, which should be used for output. A existing field will be overwritten. Sub-properties like _msg.payload.state_ are also valid.
@@ -153,7 +155,7 @@ See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
-* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled al _null_ automatically.
+* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled as _null_ automatically.
 
 ## Contribute
 
