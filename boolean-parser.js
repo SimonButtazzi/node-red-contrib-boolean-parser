@@ -20,7 +20,10 @@
              || value === null
              || value === "null"
              || value === "undefined"
-             || value === {}) {
+             || value === "unknown"
+             || value === "invalid"
+             || value === {}
+             || value === []) {
              return null;
          }
          for (var format in formats) {
@@ -35,8 +38,12 @@
                      if (valuemod === formats[format].true) return true;
                      if (valuemod === formats[format].false) return false;
                  }
+                 return Boolean(valuemod);
              }
-             return Boolean(value);
+             else
+             {
+                 return Boolean(value);
+             }
          }
          return null;
      }
@@ -114,7 +121,7 @@
             null: {"fill": "grey", "shape":"dot"}
         };
 
-        this.on("input", function(msg) {
+        this.on("input", function(msg, send, done) {
             let valueRaw = getObjectPropertyByPath(msg, node.inputField);
             let valueIn = parseIntput(
                 valueRaw,
@@ -147,6 +154,9 @@
                 shape: node.statuses[valueUnformatted].shape,
                 text: '' + valueRaw +  ' ' + ((valueIn === null && node.handleNull === "stopflow") ? '#' : (node.invert ? '!' : '') + '> ' + valueOut)
             });
+            if (done) {
+                done();
+            }
         });
     }
 

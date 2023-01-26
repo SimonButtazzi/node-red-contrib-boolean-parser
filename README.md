@@ -72,7 +72,9 @@ Default is false (no inversion).
 
 ### Handle null value
 
-If a value cant't be treaten as true or false, (e.g. _null_), it will be handled as defined by _Handle null values_:
+Input values like _undefined_, _unknown_, _invalid_, _null_, `null`, `undefined`, `{}`, `[]`, ... will be handled as `null` automatically.
+
+If a value cant't be treaten as `true` or `false`, (e.g. `null`), it will be handled as defined by _Handle null inputs_:
 
 * keep as null
 * treat as true
@@ -155,7 +157,7 @@ See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
-* Input values like _undefined_, _unknown_, _invalid_, _undefined_, ... should be handled as _null_ automatically.
+
 
 ## Contribute
 
