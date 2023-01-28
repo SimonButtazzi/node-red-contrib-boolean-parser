@@ -22,4 +22,4 @@ jobs:
       - run: npm config set git-tag-version true
       - run: npm version patch -m '[RELEASE] %s'
       - run: git push
-#      - run: git push --tags
+      - run: git push --tags
