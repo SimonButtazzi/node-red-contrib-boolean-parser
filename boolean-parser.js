@@ -15,16 +15,14 @@
         return (value === null) ? null : Boolean(value);
      }
 
-     function parseIntput(value, formats, strict) {
+     function parseIntput(value, formats, strict, nullvalues) {
          if (typeof value === "undefined"
-             || value === null
-             || value === "null"
-             || value === "undefined"
-             || value === "unknown"
-             || value === "invalid"
-             || value === {}
-             || value === []) {
+         || JSON.stringify(value) === '{}'
+         || JSON.stringify(value) === '[]')
              return null;
+         for (var i = 0; i < nullvalues.length; i++) {
+            if(nullvalues[i] === value)
+                return null;
          }
          for (var format in formats) {
              if (value === formats[format].true) return true;
@@ -34,6 +32,11 @@
              if (typeof value === "number") return Boolean(value);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
+                 for (var i = 0; i < nullvalues.length; i++) {
+                     if((typeof nullvalues === 'string' || nullvalues instanceof String)
+                         && nullvalues[i].trim().toLowerCase() === valuemod)
+                         return null;
+                 }
                  for (format in formats) {
                      if (valuemod === formats[format].true) return true;
                      if (valuemod === formats[format].false) return false;
@@ -91,6 +94,16 @@
         this.invert = Boolean(config.invert  || false);
         this.strict = Boolean(config.strict  || false);
 
+        this.nullvalues = [
+            null,
+            "null",
+            "undefined",
+            "unknown",
+            "invalid",
+            "NA",
+            "not-available",
+            "not available",
+        ];
         this.handleNullOpts = {
             "null": null,
             "true": true,
@@ -127,7 +140,8 @@
             let valueIn = parseIntput(
                 valueRaw,
                 node.formats,
-                node.strict);
+                node.strict,
+                node.nullvalues);
             let valueUnformatted = null;
             let valueOut = null;
             if (!(valueIn === null && node.handleNull === "stopflow")) {

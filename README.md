@@ -80,7 +80,7 @@ If a value cant't be treaten as `true` or `false` by comparing current input val
 
 ### Handle null inputs
 
-Input values like _undefined_, _unknown_, _invalid_, _null_, `null`, `undefined`, `{}`, `[]`, ... will be handled as `null` automatically.
+Input values like _undefined_, _unknown_, _invalid_, _null_, _NA_, _not-available_, `null`, `undefined`, `{}`, `[]`, ... will be handled as `null` automatically.
 
 If a value cant't be treaten as `true` or `false`, (e.g. `null`), it will be handled as defined by _Handle null inputs_:
 
