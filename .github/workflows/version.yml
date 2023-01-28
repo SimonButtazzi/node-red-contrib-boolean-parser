@@ -10,7 +10,7 @@ jobs:
   version:
     name: release
     runs-on: ubuntu-latest
-    if: "!startsWith(github.event.head_commit.message, '[TEST]')"
+    if: "!startsWith(github.event.head_commit.message, '[RELEASE]')"
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -20,6 +20,6 @@ jobs:
       - run: git config --global user.email 'simon.buttazzi@gmail.com'
       - run: npm install -g auto-changelog
       - run: npm config set git-tag-version true
-      - run: npm version patch -m '[TEST] %s'
+      - run: npm version patch -m '[RELEASE] %s'
       - run: git push
 #      - run: git push --tags
