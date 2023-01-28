@@ -70,7 +70,15 @@ The logic can be inverted. An input detected as `true` will be handled as `false
 
 Default is false (no inversion).
 
-### Handle null value
+### Strict input
+
+If a value cant't be treaten as `true` or `false` by comparing current input value to available formats 
+(see [Supportet output formats][]),  
+
+* it will be handled as `null` in case of strict input is enabled
+* it will try to treat to `true` or `false` automatically, case-insensitive, trimmed. Example: "_foo_" -> `true`, "" -> `false`
+
+### Handle null inputs
 
 Input values like _undefined_, _unknown_, _invalid_, _null_, `null`, `undefined`, `{}`, `[]`, ... will be handled as `null` automatically.
 

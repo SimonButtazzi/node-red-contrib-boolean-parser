@@ -89,6 +89,7 @@
         this.outputFormat = config.outputFormat || "bool";
         this.handleNull = config.handleNull || "null";
         this.invert = Boolean(config.invert  || false);
+        this.strict = Boolean(config.strict  || false);
 
         this.handleNullOpts = {
             "null": null,
@@ -126,7 +127,7 @@
             let valueIn = parseIntput(
                 valueRaw,
                 node.formats,
-                false);
+                node.strict);
             let valueUnformatted = null;
             let valueOut = null;
             if (!(valueIn === null && node.handleNull === "stopflow")) {
