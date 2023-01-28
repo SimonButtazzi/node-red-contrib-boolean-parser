@@ -15,13 +15,14 @@
         return (value === null) ? null : Boolean(value);
      }
 
-     function parseIntput(value, formats, strict) {
+     function parseIntput(value, formats, strict, nullvalues) {
          if (typeof value === "undefined"
-             || value === null
-             || value === "null"
-             || value === "undefined"
-             || value === {}) {
+         || JSON.stringify(value) === '{}'
+         || JSON.stringify(value) === '[]')
              return null;
+         for (var i = 0; i < nullvalues.length; i++) {
+            if(nullvalues[i] === value)
+                return null;
          }
          for (var format in formats) {
              if (value === formats[format].true) return true;
@@ -31,12 +32,21 @@
              if (typeof value === "number") return Boolean(value);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
+                 for (var i = 0; i < nullvalues.length; i++) {
+                     if((typeof nullvalues === 'string' || nullvalues instanceof String)
+                         && nullvalues[i].trim().toLowerCase() === valuemod)
+                         return null;
+                 }
                  for (format in formats) {
                      if (valuemod === formats[format].true) return true;
                      if (valuemod === formats[format].false) return false;
                  }
+                 return Boolean(valuemod);
              }
-             return Boolean(value);
+             else
+             {
+                 return Boolean(value);
+             }
          }
          return null;
      }
@@ -82,7 +92,18 @@
         this.outputFormat = config.outputFormat || "bool";
         this.handleNull = config.handleNull || "null";
         this.invert = Boolean(config.invert  || false);
+        this.strict = Boolean(config.strict  || false);
 
+        this.nullvalues = [
+            null,
+            "null",
+            "undefined",
+            "unknown",
+            "invalid",
+            "NA",
+            "not-available",
+            "not available",
+        ];
         this.handleNullOpts = {
             "null": null,
             "true": true,
@@ -114,12 +135,13 @@
             null: {"fill": "grey", "shape":"dot"}
         };
 
-        this.on("input", function(msg) {
+        this.on("input", function(msg, send, done) {
             let valueRaw = getObjectPropertyByPath(msg, node.inputField);
             let valueIn = parseIntput(
                 valueRaw,
                 node.formats,
-                false);
+                node.strict,
+                node.nullvalues);
             let valueUnformatted = null;
             let valueOut = null;
             if (!(valueIn === null && node.handleNull === "stopflow")) {
@@ -147,6 +169,9 @@
                 shape: node.statuses[valueUnformatted].shape,
                 text: '' + valueRaw +  ' ' + ((valueIn === null && node.handleNull === "stopflow") ? '#' : (node.invert ? '!' : '') + '> ' + valueOut)
             });
+            if (done) {
+                done();
+            }
         });
     }
 
