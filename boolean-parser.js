@@ -30,6 +30,7 @@
          }
          if (!strict) {
              if (typeof value === "number") return Boolean(value);
+             if (typeof value === "object" && 'code' in value && typeof value.code === "number") return handleInvert(Boolean(value.code), true);
              if (typeof value === 'string' || value instanceof String) {
                  var valuemod = value.toLowerCase().trim();
                  for (var i = 0; i < nullvalues.length; i++) {
