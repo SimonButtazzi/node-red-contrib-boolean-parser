@@ -72,7 +72,7 @@ Default is false (no inversion).
 
 ### Strict input
 
-If a value cant't be treaten as `true` or `false` by comparing current input value to available formats 
+If a value can't be treaten as `true` or `false` by comparing current input value to available formats 
 (see [Supportet output formats][]),  
 
 * it will be handled as `null` in case of strict input is enabled
@@ -82,7 +82,7 @@ If a value cant't be treaten as `true` or `false` by comparing current input val
 
 Input values like _undefined_, _unknown_, _invalid_, _null_, _NA_, _not-available_, `null`, `undefined`, `{}`, `[]`, ... will be handled as `null` automatically.
 
-If a value cant't be treaten as `true` or `false`, (e.g. `null`), it will be handled as defined by _Handle null inputs_:
+If a value can't be treaten as `true` or `false`, (e.g. `null`), it will be handled as defined by _Handle null inputs_:
 
 * keep as null
 * treat as true
