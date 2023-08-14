@@ -10,7 +10,7 @@ node-red-contrib-boolean-parser
 [![NPM](https://img.shields.io/npm/v/node-red-contrib-boolean-parser?logo=npm)](https://www.npmjs.org/package/node-red-contrib-boolean-parser)
 [![Known Vulnerabilities](https://snyk.io/test/npm/node-red-contrib-boolean-parser/badge.svg)](https://snyk.io/test/npm/node-red-contrib-boolean-parser)
 [![Package Quality](http://npm.packagequality.com/shield/node-red-contrib-boolean-parser.png)](http://packagequality.com/#?package=node-red-contrib-boolean-parser)
-[![Open Issues](https://img.shields.io/github/issues-raw/simonbuttazzi/node-red-contrib-boolean-parser.svg)](https://github.com/simonbuttazzi/node-red-boolean-parser/issues)
+[![Open Issues](https://img.shields.io/github/issues-raw/simonbuttazzi/node-red-contrib-boolean-parser.svg)](https://github.com/SimonButtazzi/node-red-contrib-boolean-parser/issues)
 [![Closed Issues](https://img.shields.io/github/issues-closed-raw/simonbuttazzi/node-red-contrib-boolean-parser.svg)](https://github.com/simonbuttazzi/node-red-contrib-boolean-parser/issues?q=is%3Aissue+is%3Aclosed)
 
 ---
@@ -165,7 +165,7 @@ See [JSON](examples/single-split-output.json) for import.
 
 ## Known Issues
 
-
+see [GitHub](https://github.com/SimonButtazzi/node-red-contrib-boolean-parser/issues)
 
 ## Contribute
 
