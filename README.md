@@ -155,7 +155,7 @@ See [JSON](examples/conversion.json) for import.
 
 ![Example: Different undefined inputs and conversion strategies](assets/example-null-handling.png "Example: Different undefined inputs and conversion strategies")
 
-See [JSON](examples/Handle Null.json) for import.
+See [JSON](examples/handle-null.json) for import.
 
 ### Split outputs
 
