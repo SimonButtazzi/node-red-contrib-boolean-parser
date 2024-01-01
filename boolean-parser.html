@@ -70,7 +70,10 @@
                                 "run-stop": {"true": "run", "false": "stop"},
                                 "on-off": {"true": "on", "false": "off"},
                                 "On-Off": {"true": "On", "false": "Off"},
-                                "ON-OFF": {"true": "ON", "false": "OFF"}
+                                "ON-OFF": {"true": "ON", "false": "OFF"},
+                                "open-close": {"true": "open", "false": "close"},
+                                "Open-Close": {"true": "Open", "false": "Close"},
+                                "OPEN-CLOSE": {"true": "OPEN", "false": "CLOSE"}
                             };
                             for(let key in data) {
                                 let quote = typeof (data[key].true) === "string" ? '"' : '';
@@ -170,6 +173,9 @@
         <dt>on-off<span class="property-type">string</span></dt><dd>true: on<br />false: off</dd>
         <dt>On-Off<span class="property-type">string</span></dt><dd>true: On<br />false: Off</dd>
         <dt>ON-OFF<span class="property-type">string</span></dt><dd>true: ON<br />false: OFF</dd>
+        <dt>open-close<span class="property-type">string</span></dt><dd>true: open<br />false: close</dd>
+        <dt>Open-Close<span class="property-type">string</span></dt><dd>true: Open<br />false: Close</dd>
+        <dt>OPEN-CLOSE<span class="property-type">string</span></dt><dd>true: OPEN<br />false: CLOSE</dd>
     </dl>
 
     <h3>Handle null</h3>

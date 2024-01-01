@@ -128,7 +128,10 @@
             "run-stop": {"true": "run", "false": "stop"},
             "on-off": {"true": "on", "false": "off"},
             "On-Off": {"true": "On", "false": "Off"},
-            "ON-OFF": {"true": "ON", "false": "OFF"}
+            "ON-OFF": {"true": "ON", "false": "OFF"},
+            "open-close": {"true": "open", "false": "close"},
+            "Open-Close": {"true": "Open", "false": "Close"},
+            "OPEN-CLOSE": {"true": "OPEN", "false": "CLOSE"}
         };
         this.statuses = {
             true: {"fill": "green", "shape":"dot"},

@@ -113,6 +113,9 @@ for boolean true and false
 * "on" / "off"
 * "On" / "Off"
 * "ON" / "OFF"
+* "open" / "close"
+* "Open" / "Close"
+* "OPEN" / "CLOSE"
 
 ### Different outputs
 
